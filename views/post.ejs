@@ -67,15 +67,21 @@
             <a href="https://www.flickr.com/photos/nasacommons/">NASA on The Commons</a>.</p>
         </div>
       </div>
-    </div>
-  </article>
+  
+  <!-- UPDATE-DELETE Button -->
+
+  <div class="w-100 d-flex justify-content-center align-items-center">
+    <a href="/posts/edit/<%= post._id %>" class="p-3 bg-info text-white mx-2 rounded shadow-sm">Update</a>
+    <a href="/posts/<%= post._id %>?_method=DELETE" class="p-3 bg-danger text-white mx-2 rounded shadow-sm"
+      onclick="return confirm('ARE YOU SURE?')" >Delete</a>
+ </div>
 
   <hr>
 
   <!-- Footer -->
 
   <%- include('partials/_footer') -%>
-
+  <script src="js/clean-blog.min.js"></script>
 </body>
 
 </html>
