@@ -11,10 +11,13 @@ const pageControllers = require("./controllers/pageControllers");
 
 //connect DB
 
-mongoose.connect("mongodb://127.0.0.1:27017/cleanblog-test-db", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(
+  "mongodb+srv://ilker:9nNx4kjznO2bqX8u@atlascluster.atme0jg.mongodb.net/cleanblog-test-db?retryWrites=true&w=majority",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
+);
 
 //Template engine
 app.set("view engine", "ejs");
@@ -40,7 +43,7 @@ app.get("/posts/edit/:id", pageControllers.getEditPage);
 app.put("/posts/:id", postControllers.updatePost);
 app.delete("/posts/:id", postControllers.deletePost);
 
-const port = 3000;
+const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log(`Sunucu ${port} portunda baslatildi..`);
 });
